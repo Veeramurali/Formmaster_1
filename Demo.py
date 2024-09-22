@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-st.title('AI Fitness Trainer: Squats Analysis')
+st.title('AI Fitness Trainer')
 
 
 recorded_file = 'output_live.mp4'
