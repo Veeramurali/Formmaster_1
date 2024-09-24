@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-st.title('AI Fitness Trainer')
+st.title('Form Master')
 
 
 recorded_file = 'output_live.mp4'
