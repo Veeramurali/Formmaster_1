@@ -11,10 +11,18 @@ def get_thresholds_beginner():
         'TRANS': (15, 29),    # Transition range (too low)
         'PASS': (151, 180)    # Pass range (too high)
     }
+    
+    # Added shoulder press angle thresholds
+    _ANGLE_SHOULDER_PRESS = {
+        'NORMAL': (80, 120),  # Normal range for shoulder angle during shoulder press
+        'TRANS': (70, 79),    # Transition range (too low)
+        'PASS': (121, 150)    # Pass range (too high)
+    }
 
     thresholds = {
         'HIP_KNEE_VERT': _ANGLE_HIP_KNEE_VERT,
         'ELBOW_BICEP_CURL': _ANGLE_ELBOW_BICEP_CURL,  # Added bicep curl thresholds
+        'SHOULDER_PRESS': _ANGLE_SHOULDER_PRESS,      # Added shoulder press thresholds
 
         'HIP_THRESH': [10, 50],
         'ANKLE_THRESH': 45,
@@ -42,10 +50,18 @@ def get_thresholds_pro():
         'TRANS': (15, 29),    # Transition range (too low)
         'PASS': (151, 180)    # Pass range (too high)
     }
+    
+    # Added shoulder press angle thresholds
+    _ANGLE_SHOULDER_PRESS = {
+        'NORMAL': (80, 130),  # Normal range for shoulder angle during shoulder press
+        'TRANS': (70, 79),    # Transition range (too low)
+        'PASS': (131, 150)    # Pass range (too high)
+    }
 
     thresholds = {
         'HIP_KNEE_VERT': _ANGLE_HIP_KNEE_VERT,
         'ELBOW_BICEP_CURL': _ANGLE_ELBOW_BICEP_CURL,  # Added bicep curl thresholds
+        'SHOULDER_PRESS': _ANGLE_SHOULDER_PRESS,      # Added shoulder press thresholds
 
         'HIP_THRESH': [15, 50],
         'ANKLE_THRESH': 30,

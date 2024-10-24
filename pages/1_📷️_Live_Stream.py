@@ -4,6 +4,7 @@ import sys
 import streamlit as st
 from streamlit_webrtc import VideoHTMLAttributes, webrtc_streamer
 from aiortc.contrib.media import MediaRecorder
+import importlib.util  # Import for dynamic module loading
 
 BASE_DIR = os.path.abspath(os.path.join(__file__, '../../'))
 sys.path.append(BASE_DIR)
@@ -28,8 +29,18 @@ elif mode == 'Pro':
     thresholds = get_thresholds_pro()
 
 # Initialize the ProcessFrame instance based on the selected exercise
-if selected_exercise == 'Bicep Curls':
-    live_process_frame = ProcessFrame(thresholds=thresholds, flip_frame=True)  # For bicep curls
+if selected_exercise == 'Shoulder Press':
+    # Dynamically import and run the shoulder_press.py code
+    shoulder_press_path = "D:\\main project\\FormMaster\\shoulder_press.py"
+    spec = importlib.util.spec_from_file_location("shoulder_press", shoulder_press_path)
+    shoulder_press_module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(shoulder_press_module)
+    
+    # Display comments or instructions for Shoulder Press
+    st.info("Perform the Shoulder Press by lifting weights overhead. Maintain good posture and control.")
+    
+    # Initialize the ProcessFrame instance for Shoulder Press
+    live_process_frame = ProcessFrame(thresholds=thresholds, flip_frame=True)
 else:
     live_process_frame = ProcessFrame(thresholds=thresholds, flip_frame=True)  # For other exercises
 
